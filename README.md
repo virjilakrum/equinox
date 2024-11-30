@@ -1,0 +1,2 @@
+# equinox
+Equinox scientific platform
