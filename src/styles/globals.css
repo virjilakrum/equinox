@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --equinox-black: 10 11 14;
+    --equinox-silver: 199 208 216;
+    --equinox-green: 38 255 177;
+    
+    /* Extended Palette */
+    --background-primary: var(--equinox-black);
+    --background-secondary: 17 18 20;
+    --text-primary: var(--equinox-silver);
+    --text-secondary: 138 149 165;
+    
+    /* Functional Colors */
+    --success: 52 211 153;
+    --warning: 251 191 36;
+    --error: 239 68 68;
+    --info: 96 165 250;
+  }
+
+  body {
+    @apply bg-gradient-to-b from-background-primary to-background-secondary text-text-primary font-body min-h-screen;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-gradient-to-r from-equinox-green to-equinox-green/80 text-equinox-black font-medium rounded-lg 
+           hover:opacity-90 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-equinox-green/20;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 border border-equinox-silver/20 text-text-primary font-medium rounded-lg 
+           hover:bg-equinox-green/5 transition-all duration-300 hover:border-equinox-green/30;
+  }
+
+  .card {
+    @apply bg-background-secondary/80 backdrop-blur-xl p-6 rounded-xl border border-equinox-silver/10
+           hover:border-equinox-silver/20 transition-all duration-300 shadow-xl shadow-black/20;
+  }
+
+  .glass-effect {
+    @apply bg-background-secondary/40 backdrop-blur-xl border border-equinox-silver/10;
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-scaleIn {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .glow {
+    box-shadow: 0 0 20px theme('colors.equinox-green.DEFAULT');
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px theme('colors.equinox-green.DEFAULT');
+  }
+}
